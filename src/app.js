@@ -48,6 +48,20 @@ app.post("/usuarios", validarUsuarios, async (req, res) => {
   }
 });
 
+//Rota de exibição do usuário
+app.get("/usuarios", async (req, res) => {
+  try {
+    const resultado = await pool.query(`
+      SELECT
+        *
+      FROM usuarios;
+    `);
+    res.json(resultado.rows);
+  } catch (erro) {
+    res.status(500).json({ erro: "Erro ao buscar usuário" });
+  }
+});
+
 //Rota de Login
 app.post("/login", async (req, res) =>{
     const {email, senha} = req.body;
