@@ -12,11 +12,6 @@ const postSchema = Joi.object({
         "string.min": "O conteúdo deve conter pelo menos 5 caracteres",
         "any.required": "O conteúdo é obrigatório"
     }),                                                                                                                                                                                                                                                                                                                                                     
-    usuario_id: Joi.number().integer().required().messages({
-        "number.base": "O usuario_id deve ser um número",
-        "number.integer": "O usuario_id deve ser um número inteiro",
-        "any.required": "O ID do usuário é obrigatório"
-    })
 });
 
 
